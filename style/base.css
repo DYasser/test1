@@ -1,5 +1,25 @@
-/*
-    See the JupyterLab Developer Guide for useful CSS Patterns:
+div.iframe-widget {
+    height:100%;
+    width:100%;
+}
 
-    https://jupyterlab.readthedocs.io/en/stable/developer/css.html
-*/
+div.iframe-widget iframe{
+    height:100%;
+    width:100%;
+}
+
+body.p-mod-override-cursor div.iframe-widget {
+  position: relative;
+  pointer-events: none;
+
+}
+
+body.p-mod-override-cursor div.iframe-widget:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
