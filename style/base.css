@@ -1,8 +1,12 @@
 div.iframe-widget {
     height:100%;
-    width:100%;
+    width:100%;  
 }
 
+/*
+width 30%, starts to become slower and click starts holding the new tab
+width 40%, same interaction but even slower
+*/
 div.iframe-widget iframe{
     height:100%;
     width:100%;
