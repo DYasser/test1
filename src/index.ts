@@ -6,8 +6,12 @@ import {
 import { ICommandPalette} from '@jupyterlab/apputils';
 
 import { IFrame, MainAreaWidget} from '@jupyterlab/apputils';
+<<<<<<< HEAD
 
 
+=======
+ 
+>>>>>>> 4dd26f2630dfdb281e466211eb78139a3e13bfff
 async function activate(
   app: JupyterFrontEnd,
   palette: ICommandPalette
