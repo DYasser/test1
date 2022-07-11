@@ -6,26 +6,28 @@ import {
 import { ICommandPalette} from '@jupyterlab/apputils';
 
 import { IFrame, MainAreaWidget} from '@jupyterlab/apputils';
-<<<<<<< HEAD
 
-
-=======
- 
->>>>>>> 4dd26f2630dfdb281e466211eb78139a3e13bfff
 async function activate(
   app: JupyterFrontEnd,
   palette: ICommandPalette
 ):Promise<void> {
   console.log('JupyterLab extension Gallery is activated!');
+
   const command: string = 'gallery:open';
   app.commands.addCommand(command, {
     label: `Gallery`,
     execute: () => 
-    {
+    { 
       let content = new IFrame({
-        sandbox: ['allow-scripts', 'allow-forms', 'allow-same-origin']
+        sandbox: ['allow-scripts', 'allow-forms', 'allow-same-origin', 'allow-modals', 'allow-downloads']
       });
-      content.url = "https://swan-gallery.web.cern.ch/";
+
+      window.addEventListener('message', event => {
+          console.log(event.data);
+        }); 
+        
+
+      content.url = "http://127.0.0.1:8080/test.html";
       content.title.label = "Gallery";
       let widget = new MainAreaWidget({ content });
       widget.id = 'swan-gallery';
@@ -34,7 +36,7 @@ async function activate(
       app.shell.activateById(widget.id);
     }
   });
-  // Add the command to the palette.
+  
   palette.addItem({ command, category: 'Tutorial' });
 }
 
@@ -44,5 +46,6 @@ const extension: JupyterFrontEndPlugin<void> = {
   autoStart: true,
   activate: activate
 };
+ 
 
 export default extension;
